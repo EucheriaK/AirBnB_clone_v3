@@ -155,6 +155,7 @@ No known bugs at this time.
 
 ## Authors
 Eucheria Kureva https://github.com/EucheriaK
+Fafali Quashigah https://github.com/Fali28
 
 ## License
 Public Domain. No copy write protection. 
