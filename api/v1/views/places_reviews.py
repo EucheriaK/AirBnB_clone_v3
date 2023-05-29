@@ -22,6 +22,7 @@ def get_all_reviews(place_id):
     reviews = [obj.to_dict() for obj in place.reviews]
     return jsonify(reviews)
 
+
 @app_views.route('/reviews/<string:review_id>', methods=['GET'],
                 strict_slashes=False)
 @swag_from('documentation/reviews/get_id.yml', methods=['GET'])
@@ -31,6 +32,7 @@ def get_review(review_id):
     if review is None:
         abort(404)
     return jsonify(review.to_dict())
+
 
 @app_views.route('/reviews/<string:review_id>', methods=['DELETE'],
                 strict_slashes=False)
@@ -43,6 +45,7 @@ def del_review(review_id):
     review.delete()
     storage.save()
     return jsonify({})
+
 
 @app_views.route('/places/<string:place_id>/reviews', methods=['POST'],
                 strict_slashes=False)
@@ -66,6 +69,7 @@ def create_obj_review(place_id):
     obj = Review(**kwargs)
     obj.save() 
     return (jsonify(obj.to_dict()), 201)
+
 
 @app_views.route('/reviews/<string:review_id>', methods=['PUT'],
                 strict_slashes=False)
