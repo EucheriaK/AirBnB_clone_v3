@@ -20,6 +20,7 @@ def get_amenities(place_id):
     amenities = [obj.to_dict() for obj in place.amenities]
     return jsonify(amenities)
 
+
 @app_views.route('/places/<string:place_id>/amenities/<string:amenity_id>',
                 methods=['DELETE'], strict_slashes=False)
 @swag_from('documentation/place_amenity/delete.yml', methods=['DELETE'])
@@ -36,6 +37,7 @@ def delete_amenity(place_id, amenity_id):
     place.amenities.remove(amenity)
     storage.save()
     return jsonify({})
+
 
 @app_views.route('/places/<string:place_id>/amenities/<string:amenity_id>',
                  methods=['POST'], strict_slashes=False)
